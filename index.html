@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#020711">
+<title>MK-X AR Armor Simulator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<video id="camera" autoplay playsinline muted></video>
+<canvas id="scene"></canvas>
+
+<div class="hud">
+  <div class="top">
+    <strong>◈ AR ARMOR // MK-X</strong>
+    <div>POWER <b id="power">100%</b><div id="powerbar"><div id="powerfill"></div></div></div>
+  </div>
+  <div id="hint">SYSTEM STANDBY</div>
+  <div class="panel">
+    SYSTEM: <b id="sys">READY</b><br>
+    CAMERA: <b id="camstatus">OFF</b><br>
+    HAND: <b id="gesture">NONE</b><br>
+    REACTOR: <b id="reactor">STANDBY</b><br>
+    MODE: <b id="mode">HOLOGRAM</b><br>
+    FPS: <b id="fps">--</b>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<div class="controls">
+  <button id="fly">✦ FLIGHT</button>
+  <button id="fire">✹ REPULSOR</button>
+  <button id="rotate">⟳ ROTATE: ON</button>
+  <button id="hide">ARMOR: ON</button>
+  <button id="settingsBtn">⚙ SETTINGS</button>
+  <button id="charge">⚡ CHARGE</button>
+  <button id="recenter">◎ RECENTER</button>
+  <button id="stop">■ STOP CAMERA</button>
+</div>
+
+<div id="start">
+  <div class="logo">🦾</div>
+  <h1>AR ARMOR</h1>
+  <div style="letter-spacing:4px;color:white;font-size:11px">MARK-X INTERACTIVE SYSTEM</div>
+  <p>3D sci-fi armor • Hand tracking • Repulsor effects<br>Allow camera access for hand tracking.</p>
+  <button id="begin">ACTIVATE CAMERA</button>
+  <button id="demo">DEMO MODE (NO CAMERA)</button>
+  <div class="small">Open the GitHub Pages HTTPS link. Use good lighting and keep your hand in the camera view.</div>
+  <div id="error"></div>
+</div>
+
+<div id="settings">
+  <h2>⚙ SYSTEM SETTINGS</h2>
+  <div class="setting">
+    <label for="size">Armor size <b id="sizeVal">100%</b></label>
+    <input id="size" type="range" min="60" max="140" value="100">
+  </div>
+  <div class="setting">
+    <label for="glow">Reactor glow <b id="glowVal">100%</b></label>
+    <input id="glow" type="range" min="20" max="200" value="100">
+  </div>
+  <div class="setting">
+    <label for="sensitivity">Hand sensitivity <b id="sensVal">100%</b></label>
+    <input id="sensitivity" type="range" min="50" max="150" value="100">
+  </div>
+  <div class="setting row">
+    <label for="sound">Sound effects</label>
+    <input id="sound" type="checkbox" checked>
+  </div>
+  <div class="setting row">
+    <label for="mirror">Mirror camera</label>
+    <input id="mirror" type="checkbox" checked>
+  </div>
+  <div class="setting row">
+    <label for="wireframe">Armor wireframe</label>
+    <input id="wireframe" type="checkbox">
+  </div>
+  <div class="setting row">
+    <label for="showHands">Show hand target</label>
+    <input id="showHands" type="checkbox" checked>
+  </div>
+  <button id="closeSettings" style="width:100%">SAVE & CLOSE</button>
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
