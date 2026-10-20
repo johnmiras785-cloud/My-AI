@@ -1,0 +1,283 @@
+:root {
+  --cyan: #55f5ff;
+  --blue: #008cff;
+  --gold: #ffc85a;
+  --panel: rgba(1,14,29,.88);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #020711;
+  color: var(--cyan);
+  font-family: Arial, sans-serif;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  color: var(--cyan);
+  background: #03182bf0;
+  border: 1px solid #29dfff;
+  border-radius: 10px;
+  padding: 12px 8px;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: .6px;
+  touch-action: manipulation;
+}
+
+button:active {
+  background: #075777;
+  transform: scale(.97);
+}
+
+button:disabled {
+  opacity: .5;
+}
+
+#camera {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+  z-index: 0;
+}
+
+#scene {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hud {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    #00101dcc,
+    transparent 28%,
+    transparent 70%,
+    #00101dcc
+  );
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 16px 12px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 10px var(--cyan);
+}
+
+#power {
+  color: var(--gold);
+}
+
+#powerbar {
+  width: 74px;
+  height: 4px;
+  margin-top: 5px;
+  background: #193244;
+}
+
+#powerfill {
+  height: 100%;
+  width: 100%;
+  background: var(--cyan);
+  transition: width .2s;
+}
+
+#hint {
+  position: absolute;
+  top: 66px;
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  padding: 0 12px;
+  text-shadow: 0 0 8px var(--cyan);
+}
+
+.panel {
+  position: absolute;
+  left: 10px;
+  bottom: 115px;
+  background: var(--panel);
+  border: 1px solid #38ddff88;
+  padding: 10px;
+  font-size: 10px;
+  line-height: 1.9;
+  box-shadow: 0 0 18px #00cfff20;
+}
+
+.panel b {
+  color: white;
+}
+
+.controls {
+  position: fixed;
+  z-index: 5;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 6px;
+  padding: 0 8px;
+}
+
+#start {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: radial-gradient(
+    ellipse at center,
+    #10314b,
+    #020711 70%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  text-align: center;
+  gap: 14px;
+}
+
+.logo {
+  font-size: 65px;
+  filter: drop-shadow(0 0 20px var(--cyan));
+  animation: pulse 2s infinite;
+}
+
+h1 {
+  font-size: clamp(25px,7vw,38px);
+  letter-spacing: 4px;
+  margin: 0;
+}
+
+#start p {
+  color: #b9dce9;
+  line-height: 1.6;
+  font-size: 13px;
+  max-width: 330px;
+}
+
+#begin {
+  padding: 16px 28px;
+  font-size: 14px;
+}
+
+.small {
+  font-size: 10px;
+  color: #91aab8;
+  line-height: 1.5;
+  max-width: 330px;
+}
+
+#error {
+  color: #ffaaaa;
+  font-size: 12px;
+  max-width: 340px;
+  line-height: 1.5;
+}
+
+#settings {
+  position: fixed;
+  inset: 5%;
+  z-index: 8;
+  display: none;
+  overflow: auto;
+  background: rgba(1,8,18,.97);
+  border: 1px solid #38ddff;
+  border-radius: 15px;
+  padding: 18px;
+  box-shadow: 0 0 35px #00cfff25;
+}
+
+#settings h2 {
+  text-align: center;
+  font-size: 19px;
+}
+
+.setting {
+  margin: 18px 0;
+  font-size: 12px;
+}
+
+.setting label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 9px;
+}
+
+.setting input[type=range] {
+  width: 100%;
+  accent-color: var(--cyan);
+}
+
+.setting input[type=checkbox] {
+  accent-color: var(--cyan);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#toast {
+  display: none;
+  position: fixed;
+  z-index: 7;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #03182b;
+  border: 1px solid var(--cyan);
+  padding: 10px 13px;
+  border-radius: 8px;
+  font-size: 11px;
+  text-align: center;
+  width: max-content;
+  max-width: 90%;
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 28px var(--cyan));
+  }
+}
+
+@media(max-width:360px) {
+  .controls button {
+    font-size: 9px;
+    padding: 11px 2px;
+  }
+
+  .panel {
+    font-size: 9px;
+  }
+
+  .top {
+    font-size: 9px;
+  }
+}
